@@ -1,2 +1,5 @@
 # minimal-api
-Experimenting with ASP.NET Core Minimal API
+Experiments with ASP.NET Core using:
+- Minimal API
+- Fluent VAlidation
+- JWT auth
