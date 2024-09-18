@@ -1,6 +1,7 @@
 @HostAddress = http://localhost:5133
 
 POST {{HostAddress}}/boardgame
+Authorization: Bearer
 Content-Type: application/json
 {
   "name": "Catan",

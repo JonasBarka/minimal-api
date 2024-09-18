@@ -8,7 +8,8 @@ public static class GetGame
     public static void MapAddGame(this WebApplication app)
     {
         app.MapPost("/boardgame", GetGame.Handle)
-            .WithName("AddGame");
+            .WithName("AddGame")
+            .RequireAuthorization();
     }
 
     public static Results<Ok<AddGameResponse>, BadRequest<string>> Handle(

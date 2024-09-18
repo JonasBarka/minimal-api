@@ -1,14 +1,23 @@
+using Microsoft.OpenApi.Models;
+using MinimalApi.Configuration;
 using MinimalApi.Endpoints;
 using MinimalApi.Endpoints.AddGame;
 using MinimalApi.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var services = builder.Services;
 
-builder.Services.AddSingleton<IGameStorage, GameStorage>();
-builder.Services.AddSingleton<AddGameRequestValidator>();
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+
+services.AddAuthorization();
+services.AddAuthentication("Bearer").AddJwtBearer();
+
+services.AddSingleton<IGameStorage, GameStorage>();
+services.AddSingleton<AddGameRequestValidator>();
+
+services.AddSwaggerConfiguration();
 
 var app = builder.Build();
 
