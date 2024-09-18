@@ -1,4 +1,4 @@
-﻿using MinimalApi.Endpoints.GetHello;
+﻿using MinimalApi.Endpoints.AddGame;
 
 namespace MinimalApi.Endpoints;
 
@@ -6,6 +6,6 @@ public static class Endpoints
 {
     public static void MapEndpoints(this WebApplication app)
     {
-        app.MapGetHello();
+        app.MapAddGame();
     }
 }

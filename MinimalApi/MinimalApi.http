@@ -1,6 +1,15 @@
-@MinimalApi_HostAddress = http://localhost:5133
+@HostAddress = http://localhost:5133
 
-GET {{MinimalApi_HostAddress}}/hello?name=Adam
-Accept: application/json
+POST {{HostAddress}}/boardgame
+Content-Type: application/json
+{
+  "name": "Catan",
+  "minPlayers": 1,
+  "maxPlayers": 4,
+  "categories": [
+    "Family",
+    "Classic"
+  ]
+}
 
 ###
