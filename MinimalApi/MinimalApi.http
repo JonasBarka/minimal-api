@@ -13,3 +13,20 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{HostAddress}}/boardgame
+Content-Type: application/json
+{
+  "name": "Puerto Rico",
+  "minPlayers": 1,
+  "maxPlayers": 4,
+  "categories": [
+    "Strategy",
+    "Classic"
+  ]
+}
+
+###
+
+GET {{HostAddress}}/boardgame
+Content-Type: application/json

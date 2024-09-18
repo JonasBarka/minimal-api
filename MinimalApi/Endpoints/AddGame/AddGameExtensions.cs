@@ -2,11 +2,11 @@
 
 namespace MinimalApi.Endpoints.AddGame;
 
-public static class AddGameExtensions
+public static class GetGameExtensions
 {
-    public static BoardGame ToBoardGame(this AddGameRequest request, Guid id, DateOnly createdDate)
+    public static Game ToBoardGame(this AddGameRequest request, Guid id, DateOnly createdDate)
     {
-        return new BoardGame
+        return new Game
         {
             Id = id,
             CreatedDate = createdDate,
@@ -17,7 +17,7 @@ public static class AddGameExtensions
         };
     }
 
-    public static AddGameResponse ToAddBoardGameResponse(this BoardGame boardGame)
+    public static AddGameResponse ToAddBoardGameResponse(this Game boardGame)
     {
         return new AddGameResponse(boardGame.Id, boardGame.CreatedDate, boardGame.Name, boardGame.MinPlayers, boardGame.MaxPlayers, boardGame.Categories);
     }

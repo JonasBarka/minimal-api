@@ -1,6 +1,6 @@
 ﻿namespace MinimalApi.Shared;
 
-public class BoardGame
+public class Game
 {
     public required Guid Id { get; init; }
     public required DateOnly CreatedDate { get; init; }

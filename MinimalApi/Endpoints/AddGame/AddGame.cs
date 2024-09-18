@@ -3,16 +3,16 @@ using MinimalApi.Shared;
 
 namespace MinimalApi.Endpoints.AddGame;
 
-public static class AddGame
+public static class GetGame
 {
     public static void MapAddGame(this WebApplication app)
     {
-        app.MapPost("/boardgame", AddGame.Handle)
+        app.MapPost("/boardgame", GetGame.Handle)
             .WithName("AddGame");
     }
 
     public static Results<Ok<AddGameResponse>, BadRequest<string>> Handle(
-        IBoardGameStorage storage,
+        IGameStorage storage,
         AddGameRequestValidator validator,
         AddGameRequest request)
     {
@@ -25,7 +25,7 @@ public static class AddGame
 
         var boardGame = request.ToBoardGame(Guid.NewGuid(), DateOnly.FromDateTime(DateTime.UtcNow));
 
-        storage.BoardGames.Add(boardGame);
+        storage.Games.Add(boardGame);
 
         return TypedResults.Ok(boardGame.ToAddBoardGameResponse());
     }
